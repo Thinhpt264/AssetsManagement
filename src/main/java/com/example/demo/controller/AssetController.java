@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.AssetResponse;
+import com.example.demo.dto.AssetStatusStatsDTO;
 import com.example.demo.entities.Asset;
 import com.example.demo.service.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,28 @@ public class AssetController {
         }
         return new ResponseEntity<>("Asset deleted successfully", HttpStatus.OK);
     }
+
+    @PostMapping("/createAsset")
+    public ResponseEntity<String> createAsset(@RequestBody Asset asset){
+        try {
+            String result = service.createAsset(asset);
+            if(result.equals("Asset saved successfully")){
+                return new ResponseEntity<>(result, HttpStatus.CREATED);
+            }else{
+                return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+            }
+        }catch (Exception e){
+            return new ResponseEntity<>("register failed: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/statistics")
+    public ResponseEntity<?> getAssetStatisticsByStatus() {
+        List<AssetStatusStatsDTO> assetStatsList = service.getAssetStatisticsByStatus();
+        if (assetStatsList == null || assetStatsList.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No asset statistics found");
+        }
+        return ResponseEntity.ok(assetStatsList);
+    }
+
 }
