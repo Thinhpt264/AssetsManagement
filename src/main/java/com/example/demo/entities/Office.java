@@ -1,5 +1,4 @@
 package com.example.demo.entities;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,17 +13,18 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "asset")
-public class Asset {
+@Table(name = "office")
+public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private int roomNumber;
     private String name;
-    private String type;
-    private double price;
-    private String status;
+    private String departmentHead;
+    private int employeeCount;
+    private String contact;
     @JsonIgnore
-    @OneToMany(mappedBy = "asset")
+    @OneToMany(mappedBy = "office")
     private List<AssetOffice> assetOffices;
 }
