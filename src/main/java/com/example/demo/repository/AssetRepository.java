@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface AssetRepository extends JpaRepository<Asset, Integer> {
     boolean existsById(Long id);
+    List<Asset> findByNameContainingIgnoreCase(String name);
 }
