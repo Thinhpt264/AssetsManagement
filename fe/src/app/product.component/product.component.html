@@ -1,0 +1,40 @@
+<h1 class="text-center text-primary mt-4">Product Information</h1>
+<p-toast/>
+<p-confirmDialog></p-confirmDialog>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle shadow-sm">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let p of products">
+                <tr class="text-center">
+                    <td><strong>{{ p.id }}</strong></td>
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.type }}</td>
+                    <td>{{ p.price | currency:'USD' }}</td>
+                    <td>
+                        <span class="badge" [ngClass]="{
+                            'bg-success': p.status === 'Available',
+                            'bg-warning': p.status === 'In Use',
+                            'bg-danger': p.status === 'Out of Stock'
+                        }">
+                            {{ p.status }}
+                        </span>
+                    </td>
+                    <td>
+                        <p-button icon="pi pi-trash" severity="danger" class="p-button-sm me-2" (click)="deleteAssest(p.id)"></p-button>
+                        <p-button icon="pi pi-pencil" severity="info" class="p-button-sm"></p-button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
