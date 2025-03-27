@@ -34,6 +34,7 @@ public class AssetOfficeServiceImpl implements AssetOfficeService {
         assetOffice.setAsset(asset);
         assetOffice.setOffice(office);
         return repository.save(assetOffice);
+    }
     @Override
     public List<AssetHistoryUsageResponse> getUsageHistory(Long id) {
         List<AssetOffice> assetOffices=repository.findAssetOfficeByAssetId(id);
@@ -46,3 +47,4 @@ public class AssetOfficeServiceImpl implements AssetOfficeService {
         )).collect(Collectors.toList());
     }
 }
+
