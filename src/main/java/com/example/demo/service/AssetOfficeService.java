@@ -7,4 +7,6 @@ import java.util.List;
 public interface AssetOfficeService {
     List<AssetHistoryUsageResponse> getUsageHistory(Long id);
     AssetOffice createAssetOffice(AssetOffice assetOffice);
+    AssetOffice returnAssetOffice(Long assetOfficeId);
+
 }
