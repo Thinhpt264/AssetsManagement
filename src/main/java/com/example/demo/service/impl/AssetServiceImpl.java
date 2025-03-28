@@ -20,8 +20,7 @@ public class AssetServiceImpl implements AssetService {
     @Autowired
     private AssetRepository repository;
 
-//    @Autowired
-//    private ModelMapper modelMapper;
+
     @Override
     public List<Asset> getAllAssets() {
         return repository.findAll();
@@ -88,6 +87,7 @@ public class AssetServiceImpl implements AssetService {
 
         return new AssetResponse(message, expiredAssets);
     }
+    @Override
     public String createAsset(Asset asset) {
         if (asset == null || asset.getName() == null) {
             return "Asset or asset name cannot be null";
@@ -114,6 +114,7 @@ public class AssetServiceImpl implements AssetService {
         }
         return assetStatsList;
     }
+    @Override
     public List<Asset> searchAssetsByName(String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }

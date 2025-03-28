@@ -12,8 +12,8 @@ public interface AssetService {
     String updateAsset(Long id, Asset asset);
     boolean deleteAsset(Long id);
     List<AssetStatisticsByDepartmentController> getAssetStatisticsByDepartment();
-    String createAsset(Asset asset);
-    List<AssetStatusStatsDTO> getAssetStatisticsByStatus();
+
+
     AssetResponse getActiveWarrantyAssets();
     AssetResponse getExpiredWarrantyAssets();
     String createAsset(Asset asset);
