@@ -1,4 +1,6 @@
 package com.example.demo.service.impl;
+
+import com.example.demo.dto.AssetStatisticsByDepartmentController;
 import com.example.demo.dto.AssetOfficeRequest;
 import com.example.demo.dto.AssetResponse;
 import com.example.demo.dto.AssetStatusStatsDTO;
@@ -33,6 +35,10 @@ public class AssetServiceImpl implements AssetService {
         }
         repository.save(asset);
         return "successfully";
+    }
+    @Override
+    public List<AssetStatisticsByDepartmentController> getAssetStatisticsByDepartment() {
+        return repository.getAssetStatisticsByDepartment();
     }
 
     @Override
