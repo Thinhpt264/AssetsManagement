@@ -11,6 +11,5 @@ public interface AssetService {
     boolean deleteAsset(Long id);
     String createAsset(Asset asset);
     List<AssetStatusStatsDTO> getAssetStatisticsByStatus();
-
-
+    List<Asset> searchAssetsByName(String name);
 }

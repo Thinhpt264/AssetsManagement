@@ -16,5 +16,5 @@ public interface AssetRepository extends JpaRepository<Asset, Integer> {
     List<Object[]> countAssetsByStatus();
 
     boolean existsById(Long id);
-
+    List<Asset> findByNameContainingIgnoreCase(String name);
 }
