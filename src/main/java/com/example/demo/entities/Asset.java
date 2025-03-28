@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -27,4 +28,9 @@ public class Asset {
     @JsonIgnore
     @OneToMany(mappedBy = "asset")
     private List<AssetOffice> assetOffices;
+    @Column(name = "purchase_date")
+    private LocalDate purchaseDate;
+
+    @Column(name = "warranty_expiry_date")
+    private LocalDate warrantyExpiryDate;
 }

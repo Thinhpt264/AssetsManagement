@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.AssetResponse;
+import com.example.demo.dto.AssetStatusStatsDTO;
 import com.example.demo.entities.Asset;
 import com.example.demo.service.AssetService;
 import org.apache.poi.ss.usermodel.*;
@@ -48,6 +49,7 @@ public class AssetController {
         return new ResponseEntity<>("Asset deleted successfully", HttpStatus.OK);
     }
 
+
     // Thêm phương thức xuất báo cáo tài sản ra file Excel
     @GetMapping("/exportToExcel")
     public ResponseEntity<byte[]> exportAssetsToExcel() throws IOException {
@@ -84,4 +86,5 @@ public class AssetController {
         headers.add("Content-Disposition", "attachment; filename=assets_report.xlsx");
         return new ResponseEntity<>(excelFile, headers, HttpStatus.OK);
     }
+
 }
