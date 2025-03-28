@@ -5,6 +5,8 @@ import com.example.demo.entities.Asset;
 import com.example.demo.entities.AssetOffice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -19,7 +21,6 @@ public interface AssetRepository extends JpaRepository<Asset, Integer> {
     List<Object[]> countAssetsByStatus();
 
     boolean existsById(Long id);
-
 
 
     List<Asset> findByWarrantyExpiryDateBefore(LocalDate date);
