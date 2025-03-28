@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.AssetResponse;
+import com.example.demo.dto.AssetStatusStatsDTO;
 import com.example.demo.entities.Asset;
 import com.example.demo.service.AssetService;
 import org.apache.poi.ss.usermodel.*;
@@ -84,4 +85,5 @@ public class AssetController {
         headers.add("Content-Disposition", "attachment; filename=assets_report.xlsx");
         return new ResponseEntity<>(excelFile, headers, HttpStatus.OK);
     }
+
 }
