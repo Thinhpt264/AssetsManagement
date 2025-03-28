@@ -113,6 +113,7 @@ public class AssetServiceImpl implements AssetService {
             assetStatsList.add(new AssetStatusStatsDTO(status, count));
         }
         return assetStatsList;
+    }
     public List<Asset> searchAssetsByName(String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }
