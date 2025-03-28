@@ -21,7 +21,7 @@ public class AssetByDepartmentController {
     }
 
 
-    @GetMapping("/statistics")
+    @GetMapping("/statisticss")
     public List<AssetStatisticsByDepartmentController> getAssetStatisticsByDepartment() {
         return assetRepository.getAssetStatisticsByDepartment();
     }
