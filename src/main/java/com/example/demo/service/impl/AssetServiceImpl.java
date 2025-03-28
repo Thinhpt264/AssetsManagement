@@ -37,4 +37,9 @@ public class AssetServiceImpl implements AssetService {
         }
         return false;
     }
+
+    @Override
+    public List<Asset> searchAssetsByName(String name) {
+        return repository.findByNameContainingIgnoreCase(name);
+    }
 }

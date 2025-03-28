@@ -8,4 +8,5 @@ public interface AssetService {
     List<Asset> getAllAssets();
     String updateAsset(Long id, Asset asset);
     boolean deleteAsset(Long id);
+    List<Asset> searchAssetsByName(String name);
 }
