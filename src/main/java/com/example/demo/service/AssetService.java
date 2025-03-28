@@ -1,5 +1,5 @@
 package com.example.demo.service;
-
+import com.example.demo.dto.AssetResponse;
 import com.example.demo.dto.AssetStatusStatsDTO;
 import com.example.demo.entities.Asset;
 
@@ -11,6 +11,9 @@ public interface AssetService {
     boolean deleteAsset(Long id);
     String createAsset(Asset asset);
     List<AssetStatusStatsDTO> getAssetStatisticsByStatus();
-
-
+    AssetResponse getActiveWarrantyAssets();
+    AssetResponse getExpiredWarrantyAssets();
+    String createAsset(Asset asset);
+    List<AssetStatusStatsDTO> getAssetStatisticsByStatus();
+    List<Asset> searchAssetsByName(String name);
 }
